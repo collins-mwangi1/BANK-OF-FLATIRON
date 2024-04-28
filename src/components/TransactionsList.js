@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Transaction from "./Transaction";
 
+const apiUrl = rbl9
+
 function TransactionsList() {
   const [transactions, setTransactions] = useState([]);
 

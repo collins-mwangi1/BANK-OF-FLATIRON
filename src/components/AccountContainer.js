@@ -8,14 +8,14 @@ function AccountContainer() {
   const [filteredTransactions, setFilteredTransactions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8001/transactions")
+    fetch("https://bank-of-flatiron-rbl9.onrender.com/transactions")
       .then((response) => response.json())
       .then((data) => setFilteredTransactions(data))
       .catch((error) => console.log("Error fetching transactions:", error));
   }, []);
 
   const handleSearch = (searchTerm) => {
-    fetch("http://localhost:8001/transactions")
+    fetch("https://bank-of-flatiron-rbl9.onrender.com/transactions")
       .then((response) => response.json())
       .then((data) => {
         const filtered = data.filter((transaction) =>
