@@ -1,4 +1,3 @@
-// Search.js
 import React, { useState } from "react";
 
 function Search({ handleSearch }) {
