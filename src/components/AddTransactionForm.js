@@ -1,7 +1,6 @@
-// AddTransactionForm.js
 import React, { useState } from "react";
 
-function AddTransactionForm() {
+function AddTransactionForm({ onAddTransaction }) {
   const [formData, setFormData] = useState({
     date: "",
     description: "",
@@ -27,7 +26,16 @@ function AddTransactionForm() {
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
-      .then((data) => console.log("Transaction added:", data))
+      .then((data) => {
+        // Call the callback function passed from the parent component
+        onAddTransaction(data);
+        setFormData({
+          date: "",
+          description: "",
+          category: "",
+          amount: "",
+        });
+      })
       .catch((error) => console.log("Error adding transaction:", error));
   };
 

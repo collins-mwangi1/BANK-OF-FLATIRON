@@ -27,10 +27,17 @@ function AccountContainer() {
     }
   };
 
+  const addTransaction = (newTransaction) => {
+    // Update the transactions state with the newly added transaction
+    setTransactions([...transactions, newTransaction]);
+    // Update the filteredTransactions state with the newly added transaction
+    setFilteredTransactions([...filteredTransactions, newTransaction]);
+  };
+
   return (
     <div>
       <Search handleSearch={handleSearch} />
-      <AddTransactionForm />
+      <AddTransactionForm onAddTransaction={addTransaction} />
       <TransactionsList transactions={filteredTransactions} />
     </div>
   );
